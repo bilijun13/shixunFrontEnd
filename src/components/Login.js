@@ -65,7 +65,12 @@ const Login = ({ setToken }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit">Login</button>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button type="button" onClick={() => window.location.href = '/register'}>
+              Register
+            </button>
+            <button type="submit">Login</button>
+          </div>
         </form>
       </div>
     </div>

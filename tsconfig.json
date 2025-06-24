@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",               // 编译目标为最新ES标准
+    "module": "ESNext",               // 使用ES模块系统
+    "moduleResolution": "node",       // 模块解析策略为Node.js风格
+    "strict": true,                   // 启用严格类型检查
+    "jsx": "preserve",                // 保留JSX语法（React 17+）
+    "sourceMap": true,                // 生成sourcemap文件
+    "resolveJsonModule": true,        // 允许导入JSON文件
+    "esModuleInterop": true,          // 兼容CommonJS和ES模块
+    "lib": ["ESNext", "DOM"],         // 包含ES和DOM类型定义
+    "baseUrl": ".",                   // 基础路径为项目根目录
+    "paths": {                        // 路径别名配置
+      "@/*": ["src/*"]
+    },
+    "types": ["vite/client"]          // 包含Vite环境类型
+  },
+  "include": [                        // 需要编译的文件范围
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
+    "src/**/*.vue"                    // 如果同时支持Vue
+  ],
+  "exclude": ["node_modules"]         // 排除的目录
+}

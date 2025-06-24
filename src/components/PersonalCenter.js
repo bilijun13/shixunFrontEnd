@@ -11,7 +11,6 @@ const PersonalCenter = ({ token }) => {
   const [gender, setGender] = useState('');
   const [openaiApiKey, setOpenaiApiKey] = useState('');
   const [tongyiApiKey, setTongyiApiKey] = useState('');
-  const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
   const [avatarUrl, setAvatarUrl] = useState(defaultAvatar); // 默认显示导入的头像
   const [isHovering, setIsHovering] = useState(false); // 新增状态来跟踪鼠标是否悬停
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 新增状态来跟踪下拉菜单是否打开
@@ -71,14 +70,6 @@ const PersonalCenter = ({ token }) => {
       alert('更新失败，请重试');
     }
   };
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setCirclePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const handleAvatarHoverEnter = () => {
     setIsDropdownOpen(true);

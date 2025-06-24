@@ -43,7 +43,6 @@ const Login = ({ setToken }) => {
           left: `${circlePosition.x - circleSize / 2}px`,
           top: `${circlePosition.y - circleSize / 2}px`,
           position: 'fixed', // 确保圆圈相对于视口定位
-          transform: 'none' // 移除不必要的 transform
         }}
       ></div>
       <div className="login-form">

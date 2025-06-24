@@ -1,0 +1,248 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* 禁止滚动 */
+}
+
+.left-navbar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding-top: 20px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.left-navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-navbar li {
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 15px 20px;
+  color: #eee;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  background-color: #444;
+  color: white;
+  padding-left: 25px;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* 如果内容超出，允许在主内容区域内滚动 */
+}
+
+.top-navbar {
+  height: 80px;
+  background-color: #f4f4f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-navbar-right {
+  display: flex;
+  align-items: center;
+  margin-left: 80%;
+}
+
+.avatar {
+  margin-top: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.profile-content {
+  margin-left: 20px; /* 减少左边距 */
+  padding: 20px; /* 增加内边距，使内容更美观 */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-height: calc(100vh - 60px); /* 减去顶部导航栏的高度 */
+  overflow-y: auto; /* 如果内容超出，允许在个人中心表单区域内滚动 */
+}
+
+.profile-section {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-section h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: filter 0.3s ease;
+}
+
+.profile-avatar-wrapper:hover .profile-avatar {
+  filter: brightness(70%);
+}
+
+.avatar-hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-avatar-wrapper:hover .avatar-hover-text {
+  opacity: 1;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+  width: 95%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+button {
+  width: 95%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* 新增弹出导航栏样式 */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 101;
+  width: 140px;
+  text-align: center;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 0; /* 调整垂直内边距，确保内容居中 */
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  line-height: 1.5; /* 调整行高，确保内容垂直居中 */
+}
+
+.dropdown-item .icon {
+  margin-right: 8px;
+}
+
+.dropdown-item:hover {
+  background-color: #007bff;
+  color: white;
+}

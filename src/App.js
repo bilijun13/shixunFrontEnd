@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AgentList from './components/AgentList';
 import CreateAgent from './components/CreateAgent';
+import PersonalCenter from "./components/PersonalCenter";
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -29,6 +30,7 @@ const App = () => {
         {/* 已登录时的路由 */}
         <Route path="/agents" element={<AgentList token={token} />} />
         <Route path="/create-agent" element={<CreateAgent token={token} />} />
+        <Route path="/Personal-Center" element={<PersonalCenter token={token} />} />
       </Routes>
     </Router>
   );
